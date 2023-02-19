@@ -7,7 +7,7 @@ from django.shortcuts import get_list_or_404
 
 
 from .models import Pattern
-from .serlializers import PatternSerilizer
+from .serlializers import PatternSerializer
 
 
 # Create your views here.
@@ -16,5 +16,5 @@ from .serlializers import PatternSerilizer
 @permission_classes([AllowAny])
 def patterns(request):
     patterns = Pattern.objects.all()
-    serializer = PatternSerilizer(patterns, many=True)
+    serializer = PatternSerializer(patterns, many=True)
     return Response(serializer.data)
