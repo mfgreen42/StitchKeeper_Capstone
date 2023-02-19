@@ -5,3 +5,4 @@ class PhotosSerializer(serializers.ModelSerializer):
     class Meta:
         model = Photo
         fields = ['id', 'pattern_id', 'date_finished', 'photo_img', 'is_favorite']
+        depth = 1
