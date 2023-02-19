@@ -3,6 +3,6 @@ from . import views
 
 urlpatterns = [
     path('', views.patterns),
-    # path('all/', views.get_all_patterns),
+    path('<int:pk>/', views.get_patterns_by_user),
 
 ]

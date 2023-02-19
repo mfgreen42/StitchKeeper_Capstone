@@ -14,7 +14,18 @@ from .serlializers import PatternSerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def patterns(request):
+def patterns(response):
     patterns = Pattern.objects.all()
     serializer = PatternSerializer(patterns, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_patterns_by_user(request):
+    print(
+        'user:', f"{request.user.username}"
+    )
+    if request.method == 'GET':
+        patterns = Pattern.objects.filter(user_id = request.user.id)
+        serializer = PatternSerializer(patterns, many=True)
+        return Response(serializer.data)
