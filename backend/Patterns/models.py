@@ -11,4 +11,4 @@ class Pattern(models.Model):
     date_added = models.DateField()
     is_embroidery = models.BooleanField()
     is_cross_stitch = models.BooleanField()
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True, related_name='user_patterns')

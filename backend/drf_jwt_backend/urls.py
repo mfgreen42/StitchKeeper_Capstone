@@ -20,6 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
     path('api/cars/', include('cars.urls')),
-    path('api/patterns/', include('Patterns.urls'))
-    # path('api/Photos/', include('Photos.urls'))
+    path('api/patterns/', include('Patterns.urls')),
+    path('api/patterns/user/', include('Patterns.urls')),
+    path('api/patterns/photos/', include('Patterns.urls'))
 ]

@@ -7,7 +7,9 @@ from django.shortcuts import get_object_or_404
 
 
 from .models import Pattern
+from Photos.models import Photo
 from .serlializers import PatternSerializer
+from Photos.serializers import PhotosSerializer
 
 
 # Create your views here.
@@ -19,35 +21,32 @@ def get_all_patterns(request):
     serializer = PatternSerializer(patterns, many=True)
     return Response(serializer.data)
 
-
-# @api_view(['GET', 'POST'])
-# @permission_classes([IsAuthenticated])
-# def user_patterns(request):
-#     if request.method == 'GET':
-#         pattern_name = request.query_params.get('pattern_id')
-#         patterns = Pattern.objects.all()
-#         if pattern_name:
-#             patterns = patterns.filter(pattern_id=pattern_name)
-#         serializer = PatternSerializer(patterns, many=True)
-#         return Response(serializer.data)
-    # if request.method == 'POST':
-    #     serializer = PatternSerializer(data=request.data)
-    #     if  serializer.is_valid(raise_exception=True):
-    #         serializer.save(user=request.user)
-    #         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    # return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def user_patterns(request):
     print(
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
-    if request.method == 'POST':
+    
+# This Posts a new pattern to a user
+    if request.method == 'POST' :
         serializer = PatternSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+#this Posts a new photo to an exsiting pattern by pattern_id
+    elif request.method =='POST' :
+        serializer = PhotosSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save(photo=request.photo)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST )
+            
+
+#this GETs all patterns for a user, I'll need this for the patterns page
     elif request.method == 'GET':
         patterns = Pattern.objects.filter(user_id=request.user.id)
         serializer = PatternSerializer(patterns, many=True)
