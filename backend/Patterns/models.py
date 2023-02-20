@@ -1,5 +1,6 @@
 from django.db import models
 from django.core.validators import FileExtensionValidator
+from authentication.models import User
 # Create your models here.
 
 
@@ -10,3 +11,4 @@ class Pattern(models.Model):
     date_added = models.DateField()
     is_embroidery = models.BooleanField()
     is_cross_stitch = models.BooleanField()
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True )
