@@ -43,38 +43,34 @@ def user_patterns(request):
         return Response(serializer.data)
 
 
- # POSTs photo to specific pattern table as FK   
+#  # POSTs photo to specific pattern table    
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def photo_to_pattern(request):
-    
-    serializer = PhotosSerializer(data=request.data)
+    patterns = Pattern.objects.filter(pattern_id = request.Pattern.id)
+
+    serializer = PhotosSerializer(patterns, data=request.data)
     if serializer.is_valid():
-        pattern_id = serializer.validated_data['pattern_id']
-        pattern = Pattern.objects.get(id=pattern_id)
-        photo = serializer.save(pattern_id=pattern)
-        return Response(PhotosSerializer(photo).data, status=status.HTTP_201_CREATED)
+        serializer.save(pattern=request.pattern_id)
+        return Response(PhotosSerializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 
 
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
-def get_patterns_by_user(request, pk):
-    
+def change_patterns(request, pk):
     patterns = get_object_or_404(Pattern, pk=pk)
     print(
         'user:', f"{request.user.username}")
-    if request.method == 'GET':
-        patterns = Pattern.objects.filter(user_id = request.user.id)
-        serializer = PatternSerializer(patterns, many=True)
-        return Response(serializer.data)
-    elif request.method == 'PUT':
-        serializer = PatternSerializer(patterns, data=request.data)
+    if request.method == 'PUT':
+        serializer = PatternSerializer(patterns, data= request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+        serializer.save
         return Response(serializer.data)
+
+
     elif request.method == 'DELETE':
         patterns.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
