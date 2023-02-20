@@ -36,21 +36,25 @@ def user_patterns(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
-
-#this Posts a new photo to an exsiting pattern by pattern_id
-    elif request.method =='POST' :
-        serializer = PhotosSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save(photo=request.photo)
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST )
-            
-
 #this GETs all patterns for a user, I'll need this for the patterns page
     elif request.method == 'GET':
         patterns = Pattern.objects.filter(user_id=request.user.id)
         serializer = PatternSerializer(patterns, many=True)
         return Response(serializer.data)
+
+
+ # POSTs photo to specific pattern table as FK   
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def photo_to_pattern(request):
+    
+    serializer = PhotosSerializer(data=request.data)
+    if serializer.is_valid():
+        pattern_id = serializer.validated_data['pattern_id']
+        pattern = Pattern.objects.get(id=pattern_id)
+        photo = serializer.save(pattern_id=pattern)
+        return Response(PhotosSerializer(photo).data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 

@@ -5,6 +5,6 @@ urlpatterns = [
     path('all/', views.get_all_patterns),
     path('', views.user_patterns),
     path('user/<int:user_id>', views.user_patterns),
-    # path('photos/<int:pattern_id>/', views.user_patterns, name='user_patterns'),
+    path('photos/<int:pattern_id>', views.photo_to_pattern),
 
 ]
