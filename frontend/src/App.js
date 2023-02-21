@@ -6,6 +6,9 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import MyPatterns from "./pages/MyPatternsPage/MyPatternsPage";
+import DashboardPage from "./pages/DashboardPage/DashboardPage";
+import AddFilesPage from "./pages/AddFilesPage/AddFilesPage"
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -19,7 +22,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route
+        <Route  //Once I have the Dashboard page set up I want it to be the landing page, not HomePage
           path="/"
           element={
             <PrivateRoute>
@@ -29,6 +32,9 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path='/mypatterns' element={<PrivateRoute><MyPatterns /></PrivateRoute>} />
+        <Route path='dahboard' element={<PrivateRoute><DashboardPage /></PrivateRoute>} />
+        <Route path='addfiles' element={<PrivateRoute><AddFilesPage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>
