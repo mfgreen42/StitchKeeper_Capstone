@@ -58,19 +58,12 @@ def photo_to_pattern(request, pattern_id):
 
 
 
-@api_view(['PUT', 'DELETE'])
+@api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def change_patterns(request, pk):
     patterns = get_object_or_404(Pattern, pk=pk)
     print(
         'user:', f"{request.user.username}")
-    if request.method == 'PUT':
-        serializer = PatternSerializer(patterns, data= request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save
-        return Response(serializer.data)
-
-
-    elif request.method == 'DELETE':
+    if request.method == 'DELETE':
         patterns.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
