@@ -46,13 +46,13 @@ def user_patterns(request):
 #  # POSTs photo to specific pattern table    
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
-def photo_to_pattern(request):
-    patterns = Pattern.objects.filter(pattern_id = request.Pattern.id)
 
-    serializer = PhotosSerializer(patterns, data=request.data)
+def photo_to_pattern(request, pattern_id):
+
+    serializer = PhotosSerializer(data=request.data, partial=True)
     if serializer.is_valid():
-        serializer.save(pattern=request.pattern_id)
-        return Response(PhotosSerializer.data, status=status.HTTP_201_CREATED)
+        serializer.save(pattern_id=pattern_id)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
