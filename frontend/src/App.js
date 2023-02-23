@@ -21,12 +21,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import useAuth from "./hooks/useAuth";
 
+
 function App() {
 
   const [user,token] = useAuth();
   const [patterns, setPatterns] = useState([]);
 
   useEffect(() => {
+    
+    console.log('fetchUserPatterns ran')
     const fetchUserPatterns= async () => {
       try {
         let response = await axios.get("http://127.0.0.1:8000/api/patterns/", {
@@ -34,6 +37,7 @@ function App() {
             Authorization: "Bearer " + token,
           },
         });
+        console.log("patterns data",response.data)
         setPatterns(response.data);
       } catch (error) {
         console.log(error.response.data)
@@ -41,7 +45,7 @@ function App() {
     };
     fetchUserPatterns();
   }, [token]);
-
+  console.log("patterns to use as props", patterns)
   return (
     <div>
       <Navbar />
@@ -57,7 +61,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path='/mypatterns' element={<PrivateRoute><MyPatternsPage /></PrivateRoute>} />
-        <Route path='/dashboard' element={<PrivateRoute><DashboardPage patterns = {patterns} /></PrivateRoute>} />
+        <Route path='/dashboard' element={<PrivateRoute><DashboardPage props = {patterns} /></PrivateRoute>} />
         <Route path='/addfiles' element={<PrivateRoute><AddFilesPage /></PrivateRoute>} />
       </Routes>
       <Footer />

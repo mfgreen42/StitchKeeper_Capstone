@@ -2,9 +2,11 @@
 
 
 const GraphInfo = (props) => {
+
+
+
     return ( 
         <div>
-            
         </div>
      );
 }
