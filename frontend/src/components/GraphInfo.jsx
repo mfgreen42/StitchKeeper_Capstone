@@ -1,7 +1,7 @@
 
 
 
-const MyPatternsPage = (props) => {
+const GraphInfo = (props) => {
     return ( 
         <div>
             
@@ -9,4 +9,4 @@ const MyPatternsPage = (props) => {
      );
 }
  
-export default MyPatternsPage;
+export default GraphInfo;
