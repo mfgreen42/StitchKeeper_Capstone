@@ -3,14 +3,14 @@ import DisplayGraph from "../../components/DisplayGraph";
 import PatternTable from "../../components/PatternTable";
 
 
-const DashboardPage = (props) => {
+const DashboardPage = (patterns) => {
 
 
     return ( 
     <div>
-        <DashboardButtons />
+        {/* <DashboardButtons />
         <DisplayGraph />
-        <PatternTable  />
+        <PatternTable  /> */}
         {/* <GraphInfo  /> */}
     </div> );
 }

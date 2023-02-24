@@ -9,7 +9,8 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import MyPatternsPage from "./pages/MyPatternsPage/MyPatternsPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import AddFilesPage from "./pages/AddFilesPage/AddFilesPage" 
-
+import DashboardButtons from "./components/DashboardButtons";
+import DisplayGraph from "./components/DisplayGraph";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -20,6 +21,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import useAuth from "./hooks/useAuth";
+import PatternTable from "./components/PatternTable";
 
 
 function App() {
@@ -49,6 +51,10 @@ function App() {
   return (
     <div>
       <Navbar />
+      <DashboardButtons />
+      <PatternTable patterns = {patterns} />
+      <DisplayGraph />
+
       <Routes>
         <Route  //Once I have the Dashboard page set up I want it to be the landing page, not HomePage
           path="/"
@@ -61,9 +67,10 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path='/mypatterns' element={<PrivateRoute><MyPatternsPage /></PrivateRoute>} />
-        <Route path='/dashboard' element={<PrivateRoute><DashboardPage props = {patterns} /></PrivateRoute>} />
+        <Route path='/dashboard' element={<PrivateRoute><DashboardPage patterns = {patterns}  /></PrivateRoute>} />
         <Route path='/addfiles' element={<PrivateRoute><AddFilesPage /></PrivateRoute>} />
       </Routes>
+
       <Footer />
     </div>
   );
