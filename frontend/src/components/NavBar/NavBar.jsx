@@ -16,9 +16,6 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          Dashboard
-        </li>
-        <li>
           {user ? (
             <button onClick={logoutUser}>Logout</button>
           ) : (

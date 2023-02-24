@@ -1,16 +1,29 @@
-
+import { Link } from "react-router-dom";
 
 
 
 const DashboardButtons = (props) => {
     return ( 
-    <div>
+        <div>
         <ol>
-            <li><button className="dashboard-buttons">My Patterns</button></li>
-            <li><button className="dashboard-buttons">Add New Pattern</button></li>
-            <li><button className="dashboard-buttons">Add New Photo</button></li>
+          <li>
+            <Link to="/mypatterns">
+              <button className="dashboard-buttons">My Patterns</button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/addfiles">
+              <button className="dashboard-buttons">Add New Pattern</button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/addfiles">
+              <button className="dashboard-buttons">Add New Photo</button>
+            </Link>
+          </li>
         </ol>
-    </div> );
-}
+      </div>
+    );
+  }
  
 export default DashboardButtons;

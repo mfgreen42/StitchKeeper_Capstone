@@ -7,10 +7,9 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import MyPatternsPage from "./pages/MyPatternsPage/MyPatternsPage";
-import DashboardPage from "./pages/DashboardPage/DashboardPage";
 import AddFilesPage from "./pages/AddFilesPage/AddFilesPage" 
-import DashboardButtons from "./components/DashboardButtons";
-import DisplayGraph from "./components/DisplayGraph";
+import AddPhotoPage from "./pages/AddPhotoPage/AddPhotoPage"
+
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -51,12 +50,9 @@ function App() {
   return (
     <div>
       <Navbar />
-      <DashboardButtons />
-      <PatternTable patterns = {patterns} />
-      <DisplayGraph />
 
       <Routes>
-        <Route  //Once I have the Dashboard page set up I want it to be the landing page, not HomePage
+        <Route  
           path="/"
           element={
             <PrivateRoute>
@@ -66,10 +62,14 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path='/mypatterns' element={<PrivateRoute><MyPatternsPage /></PrivateRoute>} />
-        <Route path='/dashboard' element={<PrivateRoute><DashboardPage patterns = {patterns}  /></PrivateRoute>} />
+        <Route path='/mypatterns' element={<PrivateRoute><MyPatternsPage patterns = {patterns} /></PrivateRoute>} />
         <Route path='/addfiles' element={<PrivateRoute><AddFilesPage /></PrivateRoute>} />
+        <Route path='/addphoto' element={<PrivateRoute><AddPhotoPage /></PrivateRoute>} />
       </Routes>
+          {/* <DashboardButtons /> */}
+          {/* <PatternTable patterns = {patterns} /> */}
+
+          {/* <DisplayGraph /> */}
 
       <Footer />
     </div>
