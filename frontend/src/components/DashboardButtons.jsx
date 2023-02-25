@@ -12,12 +12,12 @@ const DashboardButtons = (props) => {
             </Link>
           </li>
           <li>
-            <Link to="/addfiles">
+            <Link to="/addpattern">
               <button className="dashboard-buttons">Add New Pattern</button>
             </Link>
           </li>
           <li>
-            <Link to="/addfiles">
+            <Link to="/addphoto">
               <button className="dashboard-buttons">Add New Photo</button>
             </Link>
           </li>
