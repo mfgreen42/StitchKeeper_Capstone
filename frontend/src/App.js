@@ -36,7 +36,6 @@ function App() {
             Authorization: "Bearer " + token,
           },
         });
-        console.log("patterns data",response.data)
         setPatterns(response.data);
       } catch (error) {
         console.log(error.response.data)
@@ -44,7 +43,6 @@ function App() {
     };
     fetchUserPatterns();
   }, [token]);
-  console.log("patterns to use as props", patterns)
   return (
     <div>
       <Navbar />

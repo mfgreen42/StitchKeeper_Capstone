@@ -11,7 +11,6 @@ const AddPatternPage = (props) => {
     return ( 
         <div>
             <AddPatternForm  />
-            <AddPattern />
         </div>
      );
 }
