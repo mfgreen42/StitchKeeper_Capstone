@@ -11,14 +11,14 @@ const AddPatternForm = (props) => {
     const [patternName, setPatternName] = useState("");
     const [artist, setArtist] = useState("");
     const [date, setDate] = useState("");
-    const [embroidery, setEmbroidery] = useState("");
-    const [crossStitch, setCrossStitch] = useState("");
+    const [embroidery, setEmbroidery] = useState(false);
+    const [crossStitch, setCrossStitch] = useState(false);
+    const [photo, setPhoto] = useState(null);
     const [user, token] = useAuth()
 
 
     function handleAdd(event) {
         event.preventDefault();
-        debugger
         let newEntry = {
             pattern_pdf: pdf,
             pattern_name: patternName,
@@ -26,8 +26,9 @@ const AddPatternForm = (props) => {
             date_added: date,
             is_embroidery: embroidery,
             is_cross_stitch: crossStitch,
-            user: user,
+            user: user.id,
         };
+        debugger
         console.log('new entry', newEntry);
         addUserPattern(newEntry);
     };
@@ -35,7 +36,7 @@ const AddPatternForm = (props) => {
 
     const addUserPattern = async (newEntry) => {
         try {
-          let response = await axios.post("http://127.0.0.1:8000/api/patterns/user/", newEntry, {
+          let response = await axios.post('http://127.0.0.1:8000/api/patterns/user/', newEntry, {
             headers: {
               Authorization: "Bearer " + token,
             },
@@ -43,7 +44,7 @@ const AddPatternForm = (props) => {
           console.log("pattern data from AddPattern Form", response.data)
           setPatterns(response.data);
         } catch (error) {
-          console.log(error.response.data)
+          console.log(error.response)
         }
       };
 
@@ -54,25 +55,25 @@ const AddPatternForm = (props) => {
       <ol>
         <li>
           <label>PDF File</label>
-          <input type="file" name="pdf" />
+          <input type="file" name="pdf" onChange={(event) => setPdf(event.target.value)}/>
         </li>
 
         <li>
           <label>Pattern Name</label>
-          <input type="text"  name="patternName"/>
+          <input type="text"  name="patternName" onChange={(event) => setPatternName(event.target.value)}/>
         </li>
         <label>Artist</label>
-        <input type="text" name="artist"/>
+        <input type="text" name="artist" onChange={(event) => setArtist(event.target.value)} />
         <li>
           <label>Date</label>
-          <input type="date" name="date" />
+          <input type="date" name="date" onChange={(event) => setDate(event.target.value)} />
         </li>
 
         <li>
           <label>Emboridery?</label>
-          <input type="radio"  name="embroidery" value="true"/>
+          <input type="radio"  name="embroidery" value="true" onChange={(event) => setEmbroidery(event.target.value)}/>
           <label> or Cross Stitch?</label>
-          <input type="radio" name="crossStitch" value="true" />
+          <input type="radio" name="crossStitch" value="true" onChange={(event) => setCrossStitch(event.target.value)}/>
         </li>
 
         <button type="submit">Submit Pattern</button>

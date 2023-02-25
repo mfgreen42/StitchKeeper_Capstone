@@ -27,6 +27,7 @@ def get_all_patterns(request):
 def user_patterns(request):
     print(
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
+    
 # This Posts a new pattern to a user
     if request.method == 'POST' :
         serializer = PatternSerializer(data=request.data)
