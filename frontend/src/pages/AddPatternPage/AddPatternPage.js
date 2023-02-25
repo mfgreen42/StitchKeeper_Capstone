@@ -1,5 +1,5 @@
 import AddPatternForm from "../../components/AddPatternForm";
-
+import AddPattern from "../../components/AddPattern"
 
 
 const AddPatternPage = (props) => {
@@ -10,7 +10,8 @@ const AddPatternPage = (props) => {
 
     return ( 
         <div>
-            <AddPatternForm patterns = {patterns} />
+            <AddPatternForm  />
+            <AddPattern />
         </div>
      );
 }

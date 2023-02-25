@@ -61,7 +61,7 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path='/mypatterns' element={<PrivateRoute><MyPatternsPage patterns = {patterns} /></PrivateRoute>} />
-        <Route path='/addpattern' element={<PrivateRoute><AddPatternPage /></PrivateRoute>} />
+        <Route path='/addpattern' element={<PrivateRoute><AddPatternPage  /></PrivateRoute>} />
         <Route path='/addphoto' element={<PrivateRoute><AddPhotoPage /></PrivateRoute>} />
       </Routes>
 
