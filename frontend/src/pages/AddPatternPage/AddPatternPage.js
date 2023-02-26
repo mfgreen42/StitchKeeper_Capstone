@@ -1,5 +1,4 @@
 import AddPatternForm from "../../components/AddPatternForm";
-import AddPattern from "../../components/AddPattern"
 
 
 const AddPatternPage = (props) => {

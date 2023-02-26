@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
+import { Link } from "react-router-dom"
 
 const AddPhotoForm = (props) => {
   const [patternId, setPatternId] = useState("");
@@ -10,7 +11,25 @@ const AddPhotoForm = (props) => {
   const [favorite, setFavorite] = useState(false);
   const [user, token] = useAuth();
 
+
+//   this function will check if a pattern already has a photo attatched to it to make sure that only one photo is uploaded per pattern
+// this isn't currently working, It will be done in a future iteration of this project
   const addPhotoToPattern = async () => {
+    // const response = await axios.get(`http://127.0.0.1:8000/api/patterns/`, {
+    //   headers: {
+    //     Authorization: "Bearer " + token,
+    //   },
+    // });
+    // debugger
+    // // const photos = response.photos;
+
+    // console.log('response:', response.data)
+    // if (response.data.id === patternId) {
+
+    //   alert("A photo already exists for this pattern. Please upload only one photo per pattern.");
+    //   return;
+    // }
+
     const formData = new FormData();
     formData.append("pattern", patternId);
     formData.append("completed", completed);
@@ -66,7 +85,9 @@ const AddPhotoForm = (props) => {
           <input type="checkbox" name="favorite" onChange={(event) => setFavorite(event.target.value)} />
         </li>
         <li>
+          <Link to="/mypatterns">
             <button type="submit">Submit Photo</button>
+            </Link>
         </li>
       </ol>
     </form>

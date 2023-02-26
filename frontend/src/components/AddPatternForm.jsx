@@ -2,7 +2,7 @@ import useAuth  from "../hooks/useAuth"
 import { useState } from "react";
 import React from "react";
 import axios from "axios";
-// import { format } from 'date-fns'
+import { Link } from 'react-router-dom'
 
 const AddPatternForm = (props) => {
 
@@ -82,8 +82,9 @@ const AddPatternForm = (props) => {
           <label> or Cross Stitch?</label>
           <input type="checkbox"  name="false" onChange={(event) => setCrossStitch(event.target.value)}/>
         </li>
-
+        <Link to='/mypatterns'>
         <button type="submit">Submit Pattern</button>
+        </Link>
       </ol>
     </form>
   );
