@@ -12,7 +12,11 @@ const PatternTable = (props) => {
             <th>Artist</th>
             <th>Upload Date</th>
             <th>Embroidery</th>
-            <th>Cross Stich</th>
+            <th>Completed</th>
+            <th>Date Finished</th>
+            <th>Favorite</th>
+            <th>Photo</th>
+
           </tr>
         </thead>
         <tbody>
@@ -22,8 +26,34 @@ const PatternTable = (props) => {
                 <td>{pattern.pattern_name}</td>
                 <td>{pattern.artist}</td>
                 <td>{pattern.date_added}</td>
-                <td>{pattern.is_embroidery}</td>
-                <td>{pattern.is_cross_stitch}</td>
+                <td>{pattern.is_embroidery ? "🧵" : ""}</td>
+                <td>{pattern.is_cross_stitch ? "🧵": ""}</td>
+                <td>
+                  {pattern.photos.map((photo) => (
+                    <div key={photo.pattern}>
+                    {photo.completed ? "✅" : "❌"} 
+                  </div>
+                  ))}
+                </td>
+                <td>
+                  {pattern.photos.map((photo) => (
+                    <div key={photo.pattern}>{photo.date_finished}</div>
+                  ))}
+                </td>
+                <td>
+                  {pattern.photos.map((photo) => (
+                    <div key={photo.pattern}>
+                      {photo.is_favorite ? "❤️" : ""}
+                    </div>
+                  ))}
+                </td>
+                <td>
+                  {pattern.photos.map((photo) => (
+                    <div key={photo.pattern}>
+                      <img src={photo.photo_img} alt={pattern.pattern_name} />
+                    </div>
+                  ))}
+                </td>
               </tr>
             );
           })}

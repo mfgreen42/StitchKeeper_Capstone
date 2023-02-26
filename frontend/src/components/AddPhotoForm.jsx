@@ -18,8 +18,6 @@ const AddPhotoForm = (props) => {
     formData.append("photo_img", photo);
     formData.append("is_favorite", favorite);
     try {
-        debugger
-        console.log("patternId",patternId)  
       let response = await axios.post(`http://127.0.0.1:8000/api/patterns/photos/${patternId}/`,formData,{
       headers: {
             Authorization: "Bearer " + token,
@@ -27,11 +25,6 @@ const AddPhotoForm = (props) => {
         },
     });
     console.log("set response photo", response.data)
-    setPatternId("");
-    setCompleted(false);
-    setDateFinished("");
-    setPhoto("");
-    setFavorite(false);
     } catch (error) {
       console.log(error.response);
     }
