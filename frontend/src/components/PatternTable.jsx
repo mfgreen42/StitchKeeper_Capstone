@@ -1,4 +1,3 @@
-import PatternList from "./PatternList";
 
 //This component maps over patterns and displays them in a table on MyPatterns page
 

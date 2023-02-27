@@ -21,38 +21,50 @@ def get_all_patterns(request):
     serializer = PatternSerializer(patterns, many=True)
     return Response(serializer.data)
 
-    
+
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def user_patterns(request):
     print(
         'User ', f"{request.user.id} {request.user.email} {request.user.username}")
-    
+
 # This Posts a new pattern to a user
-    if request.method == 'POST' :
+    if request.method == 'POST':
         serializer = PatternSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    
-#this GETs all patterns for a user, I'll need this for the patterns page
+
+# this GETs all patterns for a user, I'll need this for the patterns page
     elif request.method == 'GET':
         patterns = Pattern.objects.filter(user_id=request.user.id)
         serializer = PatternSerializer(patterns, many=True)
         return Response(serializer.data)
 
-# POSTs photo to specific pattern    
-@api_view(['POST'])
+# POSTs photo to specific pattern
+
+
+@api_view(['POST', 'GET'])
 @permission_classes([IsAuthenticated])
 def photo_to_pattern(request, pattern_id):
-    serializer = PhotosSerializer(data=request.data, partial=True)
-    if serializer.is_valid():
-        serializer.save(pattern_id=pattern_id)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    if request.method == 'POST':
+        serializer = PhotosSerializer(data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save(pattern_id=pattern_id)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+#  GET photo object by pattern_id
+    elif request.method == 'GET':
+        photos = Photo.objects.all()
+        serializer = PhotosSerializer(photos, many=True)
+        return Response(serializer.data)  
+    
+      
 # DELETE a pattern and photo if attatched
+
+
 @api_view(['DELETE'])
 @permission_classes([IsAuthenticated])
 def change_patterns(request, pk):
