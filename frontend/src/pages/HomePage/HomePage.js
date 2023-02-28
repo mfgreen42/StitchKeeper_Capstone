@@ -15,7 +15,7 @@ const HomePage = (props) => {
     <div className="container">
       <h1>{user.username}'s Dashboard</h1>
       <DashboardButtons />
-      <DisplayGraph patterns = {patterns} />
+      <DisplayGraph />
     </div>
   );
 };

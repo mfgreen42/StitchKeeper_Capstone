@@ -1,70 +1,35 @@
-import { Chart } from "react-google-charts";
 import React from "react";
+import useAuth from "../hooks/useAuth"
+import CalendarHeatmap from "react-calendar-heatmap";
+
+
+const today = new Date();
 
 
 const DisplayGraph = (props) => {
 
 
-  const data = [
-    [
-      {
-        type: "date",
-        id: "Date",
-      },
-      {
-        type: "number",
-        id: "finished",
-      },
-    ],
-    [new Date(2023, 3, 13), 37032],
-    [new Date(2023, 3, 14), 38024],
-    [new Date(2023, 3, 15), 38024],
-    [new Date(2023, 3, 16), 38108],
-    
-  ];
-  
-  const options = {
-    title: "Completed Projects",
-    width:'100%',
-    calendar: { cellSize: 15 },
-    noDataPattern: {
-      backgroundColor: '#76a7fa',
-      color: '#a0c3ff'
-    },
-    calendar: {
-      focusedCellColor: {
-        stroke: '#d3362d',
-        strokeOpacity: 1,
-        strokeWidth: 1,
-      },
-      unusedMonthOutlineColor: {
-        stroke: 'grey',
-        strokeOpacity: 0.8,
-        strokeWidth: 2
-      }
-    }
-  };
-  
 
 
   return ( 
-    <Chart className="chart-container"
-      chartType="Calendar"
-      width="100%"
-      height="400px"
-      data={data}
-      options={options}
-    />
+    <div>
+      <h1>Projects completed this year</h1>
+      <break></break>
+      <CalendarHeatmap
+  startDate={new Date('2023-01-01')}
+  endDate={new Date('2023-12-31')}
+  values={[
+    { date: '2016-01-01', count: 12 },
+    { date: '2016-01-22', count: 122 },
+    { date: '2016-01-30', count: 38 },
+    // ...and so on
+  ]}
+/>      
+{/* <ReactTooltip /> */}
+
+    </div>
    );
 }
- 
+
+
 export default DisplayGraph;
-
-
-
-
-
-
-
-
-
