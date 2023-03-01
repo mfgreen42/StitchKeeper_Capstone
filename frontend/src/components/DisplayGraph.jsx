@@ -1,35 +1,79 @@
 import React from "react";
 import useAuth from "../hooks/useAuth"
 import CalendarHeatmap from "react-calendar-heatmap";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 
-const today = new Date();
 
 
 const DisplayGraph = (props) => {
 
+  const [user, token] = useAuth();
+  const [photos, setPhotos] = useState([])
 
 
+  useEffect(() => {
+    console.log('display graph ran')
+    const fetchUserPhotos=async () => {
+      try {
+        let response = await axios.get('http://127.0.0.1:8000/api/patterns/photos/1/', {
+          headers: {
+            Authorization: "Bearer " +token,
 
+          },
+        });
+        console.log('photo array:', response.data)
+        setPhotos(response.data);
+      } catch (error) {
+        console.log(error.response)
+      }
+    };
+    fetchUserPhotos();
+  }, [token]);
+
+  const dateFinished = photos.map((photo) => {
+    return photo.date_finished;
+  })
+  console.log(dateFinished);
+
+  const counts = dateFinished.reduce((acc, date) => {
+    const existingIndex = acc.findIndex((value) => value.date === date);
+    if (existingIndex !== -1) {
+      acc[existingIndex].count += 1;
+    } else {
+      acc.push({ date: date, count: 1 });
+    }
+    return acc;
+  }, []);
   return ( 
     <div>
       <h1>Projects completed this year</h1>
-      <break></break>
       <CalendarHeatmap
   startDate={new Date('2023-01-01')}
   endDate={new Date('2023-12-31')}
-  values={[
-    { date: '2016-01-01', count: 12 },
-    { date: '2016-01-22', count: 122 },
-    { date: '2016-01-30', count: 38 },
-    // ...and so on
-  ]}
+  values= {dateFinished.map((date) => ({
+    date: date,
+    count:{counts},
+  }))}
+
+  
+  classForValue={(value) => {
+    if (!value) {
+      return 'color-empty';
+    }
+    return `color-scale-${value.count}`;
+  }}
+  showWeekdayLabels = {true}
+  
 />      
 {/* <ReactTooltip /> */}
 
     </div>
    );
-}
+  }
+
 
 
 export default DisplayGraph;
