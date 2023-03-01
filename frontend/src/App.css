@@ -62,6 +62,8 @@ button:hover {
   width: 100%
 }
 
+.react-calendar-heatmap .color-empty {fill: #cab5f0; }
+
 .react-calendar-heatmap .color-scale-1 { fill: #9d72ee; }
 .react-calendar-heatmap .color-scale-2 { fill: #7d2fd6; }
 .react-calendar-heatmap .color-scale-3 { fill: #630e9b; }

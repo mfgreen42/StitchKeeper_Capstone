@@ -10,7 +10,7 @@ import axios from "axios";
 
 const DisplayGraph = (props) => {
 
-  const [user, token] = useAuth();
+  const [user,token] = useAuth();
   const [photos, setPhotos] = useState([])
 
 
@@ -36,17 +36,8 @@ const DisplayGraph = (props) => {
   const dateFinished = photos.map((photo) => {
     return photo.date_finished;
   })
-  console.log(dateFinished);
+  console.log('dateFinished',dateFinished);
 
-  const counts = dateFinished.reduce((acc, date) => {
-    const existingIndex = acc.findIndex((value) => value.date === date);
-    if (existingIndex !== -1) {
-      acc[existingIndex].count += 1;
-    } else {
-      acc.push({ date: date, count: 1 });
-    }
-    return acc;
-  }, []);
   return ( 
     <div>
       <h1>Projects completed this year</h1>
@@ -55,7 +46,7 @@ const DisplayGraph = (props) => {
   endDate={new Date('2023-12-31')}
   values= {dateFinished.map((date) => ({
     date: date,
-    count:{counts},
+    count: 1,
   }))}
 
   
@@ -66,7 +57,7 @@ const DisplayGraph = (props) => {
     return `color-scale-${value.count}`;
   }}
   showWeekdayLabels = {true}
-  
+  onClick={value => alert(`Clicked on value with count: ${value.count}`)}
 />      
 {/* <ReactTooltip /> */}
 
