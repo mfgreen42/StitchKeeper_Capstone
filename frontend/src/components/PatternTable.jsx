@@ -1,7 +1,14 @@
 
 //This component maps over patterns and displays them in a table on MyPatterns page
 
+import { useState } from "react";
+import DeletePattern from "./DeletePattern";
+
+
 const PatternTable = (props) => {
+  
+  const [ patterns, setPatterns ] = useState(props.patterns);
+
   return (
     <div className="table">
       <table>
@@ -19,7 +26,7 @@ const PatternTable = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.patterns.map((pattern) => {
+          {patterns.map((pattern) => {
             return (
               <tr key={pattern.id}>
                 <td>{pattern.pattern_name}</td>
@@ -52,6 +59,9 @@ const PatternTable = (props) => {
                       <img src={photo.photo_img} alt={pattern.pattern_name} />
                     </div>
                   ))}
+                </td>
+                <td>
+                  <DeletePattern patternNumber = {pattern.id} patterns = {patterns} setPatterns = {setPatterns} />
                 </td>
               </tr>
             );

@@ -36,7 +36,7 @@ const DisplayGraph = (props) => {
   const dateFinished = photos.map((photo) => {
     return photo.date_finished;
   })
-  console.log('dateFinished',dateFinished);
+  // console.log('dateFinished',dateFinished);
 
   return ( 
     <div>
