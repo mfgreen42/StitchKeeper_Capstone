@@ -3,6 +3,8 @@ import useAuth from "../../hooks/useAuth";
 import DashboardButtons from "../../components/DashboardButtons";
 import DisplayGraph from "../../components/DisplayGraph";
 
+import "./HomePage.css"
+
 const HomePage = (props) => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication

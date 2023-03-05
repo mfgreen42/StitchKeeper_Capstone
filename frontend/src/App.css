@@ -1,15 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
 
-
-:root{
+:root {
   --carmine: #940821ff;
-  --rose-taupe: #8B5D6Dff;
-  --drab-dark-brown: #423B21ff;
-  --harvest-gold: #D19313ff;
-  --russet: #864A14ff;
+  --rose-taupe: #8b5d6dff;
+  --drab-dark-brown: #423b21ff;
+  --harvest-gold: #d19313ff;
+  --russet: #864a14ff;
 }
 
- 
 *,
 *::before,
 *::after {
@@ -36,10 +34,10 @@ button {
   margin-top: 1rem;
   margin-right: 2.5rem;
   font-size: x-large;
-  padding: .5rem;
+  padding: 0.5rem;
   background: var(--rose-taupe);
   border: 2px solid rgb(133, 87, 103);
-  box-shadow: 2px 2px 5px #8B5D6Dff; 
+  box-shadow: 2px 2px 5px #8b5d6dff;
   color: white;
 }
 
@@ -59,16 +57,13 @@ button:hover {
   justify-content: flex-end;
 }
 
-
-
 .form {
   align-items: right;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 1rem;
 }
-
 .form input {
   display: block;
   width: 100%;
@@ -80,12 +75,22 @@ button:hover {
 
 .chart-container {
   height: 100%;
-  width: 100%
-} 
+  width: 100%;
+}
 
-.react-calendar-heatmap .color-empty {fill: #cab5f0; }
+.react-calendar-heatmap .color-empty {
+  fill: #cab5f0;
+}
 
-.react-calendar-heatmap .color-scale-1 { fill: #9d72ee; }
-.react-calendar-heatmap .color-scale-2 { fill: #7d2fd6; }
-.react-calendar-heatmap .color-scale-3 { fill: #630e9b; }
-.react-calendar-heatmap .color-scale-4 { fill: #2c0253; }
+.react-calendar-heatmap .color-scale-1 {
+  fill: #9d72ee;
+}
+.react-calendar-heatmap .color-scale-2 {
+  fill: #7d2fd6;
+}
+.react-calendar-heatmap .color-scale-3 {
+  fill: #630e9b;
+}
+.react-calendar-heatmap .color-scale-4 {
+  fill: #2c0253;
+}
