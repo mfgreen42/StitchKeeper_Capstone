@@ -1,4 +1,5 @@
 footer {
+  position: relative;
   color:var(--drab-dark-brown);
   background-color: var(--rose-taupe);
   bottom: 0;

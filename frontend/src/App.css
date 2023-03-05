@@ -30,30 +30,36 @@ p {
 
 
 button {
-  background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
-  font-size: 1rem;
-  font-family: inherit;
-  max-width: 100px;
-  padding: 0.5rem 0.5rem;
+  margin-top: 1rem;
+  margin-right: 2.5rem;
+  font-size: x-large;
+  padding: .5rem;
+  background: var(--rose-taupe);
+  border: 2px solid rgb(133, 87, 103);
+  box-shadow: 2px 2px 5px #8B5D6Dff; 
+  color: white;
 }
 
 button:hover {
-  cursor: pointer;
+  background: rgb(129, 87, 102);
   color: white;
-  background-color: steelblue;
+  cursor: pointer;
 }
 
 .container {
+  display: flex;
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 100%;
   overflow: auto;
-  text-align: center;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.form {
-  align-items: center;
+
+
+/* .form {
+  align-items: right;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -72,7 +78,7 @@ button:hover {
 .chart-container {
   height: 100%;
   width: 100%
-}
+} */
 
 .react-calendar-heatmap .color-empty {fill: #cab5f0; }
 

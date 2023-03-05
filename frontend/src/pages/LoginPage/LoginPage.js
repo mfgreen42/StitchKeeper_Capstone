@@ -3,6 +3,8 @@ import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
+import Login from "./Login";
+
 
 const LoginPage = () => {
   const { loginUser, isServerError } = useContext(AuthContext);
@@ -45,6 +47,9 @@ const LoginPage = () => {
         <Link to="/register">Click to register!</Link>
         <button>Login!</button>
       </form>
+      <div className="login-img-holder">
+        <Login  />
+      </div>
     </div>
   );
 };

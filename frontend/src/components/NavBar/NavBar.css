@@ -8,37 +8,38 @@ ul {
 }
 
 li {
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .navBar {
   background: rgb(255, 255, 255);
-  /* box-shadow: 4px 2px 5px #8B5D6Dff; */
-  margin-bottom: 2rem;
-  padding: 1.5rem 2rem;
+  margin-bottom: .50rem;
+  padding: .5rem 2rem;
 }
 
 a.navbar-title {
   color: #8B5D6Dff;
   text-decoration: none;
+  font-size: 3remrem;
 }
 
 hr {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
   border-top: 3px dashed var(--carmine);
 }
 
-.navBar button {
+button {
   margin-top: 1rem;
   margin-right: 2.5rem;
   font-size: x-large;
+  padding: .5rem;
   background: var(--rose-taupe);
   border: 2px solid rgb(133, 87, 103);
   box-shadow: 2px 2px 5px #8B5D6Dff; 
   color: white;
 }
 
-.navBar button:hover {
+button:hover {
   background: rgb(129, 87, 102);
   color: white;
   cursor: pointer;
