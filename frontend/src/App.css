@@ -27,9 +27,12 @@ p {
   font-size: 20px;
 }
 
-
+.login-register {
+  margin-left: 7.5rem;
+}
 
 button {
+  width: 5rem;
   margin-top: 1rem;
   margin-right: 2.5rem;
   font-size: x-large;
@@ -58,7 +61,7 @@ button:hover {
 
 
 
-/* .form {
+.form {
   align-items: right;
   display: flex;
   flex-direction: column;
@@ -78,7 +81,7 @@ button:hover {
 .chart-container {
   height: 100%;
   width: 100%
-} */
+} 
 
 .react-calendar-heatmap .color-empty {fill: #cab5f0; }
 
