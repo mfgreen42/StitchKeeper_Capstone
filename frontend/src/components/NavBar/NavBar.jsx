@@ -4,6 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 import "./NavBar.css";
 
+
 const Navbar = () => {
   const { logoutUser, user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -11,8 +12,8 @@ const Navbar = () => {
     <div className="navBar">
       <ul>
         <li className="brand">
-          <Link to="/" style={{ textDecoration: "none", color: "white" }}>
-            <b>StitchKeeper</b>
+          <Link to="/" className="navbar-title">
+            <h3>StitchKeeper</h3>
           </Link>
         </li>
         <li>
@@ -23,6 +24,7 @@ const Navbar = () => {
           )}
         </li>
       </ul>
+      <hr></hr>
     </div>
   );
 };

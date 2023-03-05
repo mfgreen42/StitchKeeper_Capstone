@@ -1,3 +1,6 @@
+
+
+
 ul {
   display: flex;
   justify-content: space-between;
@@ -9,27 +12,41 @@ li {
 }
 
 .navBar {
-  background: steelblue;
-  box-shadow: 4px 2px 5px gray;
-  color: white;
+  background: rgb(255, 255, 255);
+  /* box-shadow: 4px 2px 5px #8B5D6Dff; */
   margin-bottom: 2rem;
   padding: 1.5rem 2rem;
 }
 
+a.navbar-title {
+  color: #8B5D6Dff;
+  text-decoration: none;
+}
+
+hr {
+  margin-top: 1.5rem;
+  border-top: 3px dashed var(--carmine);
+}
+
 .navBar button {
-  background: transparent;
-  border: 2px solid white;
+  margin-top: 1rem;
+  margin-right: 2.5rem;
+  font-size: x-large;
+  background: var(--rose-taupe);
+  border: 2px solid rgb(133, 87, 103);
+  box-shadow: 2px 2px 5px #8B5D6Dff; 
   color: white;
-  padding: 0.4rem 0.5rem;
 }
 
 .navBar button:hover {
-  background: white;
-  color: steelblue;
+  background: rgb(129, 87, 102);
+  color: white;
   cursor: pointer;
 }
 
 .brand {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-left: 3rem;
+
 }

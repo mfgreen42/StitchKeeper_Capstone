@@ -1,5 +1,15 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
 
+
+:root{
+  --carmine: #940821ff;
+  --rose-taupe: #8B5D6Dff;
+  --drab-dark-brown: #423B21ff;
+  --harvest-gold: #D19313ff;
+  --russet: #864A14ff;
+}
+
+ 
 *,
 *::before,
 *::after {
@@ -10,12 +20,14 @@
 
 html {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Roboto Slab", sans-serif;
 }
 
 p {
   font-size: 20px;
 }
+
+
 
 button {
   background-color: transparent;
