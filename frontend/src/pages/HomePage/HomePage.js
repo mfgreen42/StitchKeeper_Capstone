@@ -15,7 +15,8 @@ const HomePage = (props) => {
   // const { patterns } = props;
 
   return (
-    <div className="dash-grid">
+
+    <section className="dash-grid">
       <h1 className="content-one">{user.username}'s Dashboard</h1>
       <DashboardButtons  />
       <div className="dash-img">
@@ -23,7 +24,7 @@ const HomePage = (props) => {
         </div>
 
       <DisplayGraph  />
-    </div>
+    </section>
   );
 };
 

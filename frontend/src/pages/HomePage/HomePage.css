@@ -1,8 +1,9 @@
 .dash-grid {
   display: grid;
   grid-template-columns: 500px auto 600px;
-  grid-template-rows: 100px 200px 200px; 
+  grid-template-rows: auto; 
   gap:2rem;
+  padding-bottom: 5rem;
   grid-template-areas:
     "content-one content-one dash-img"
     "dash-buttons dash-buttons dash-img"
@@ -25,7 +26,8 @@
 .dash-buttons {
     grid-area: dash-buttons;
     justify-self: center;
-    margin-left: 5rem;
+    margin-left: 8rem;
+    
 
 }
 .actual-img {
@@ -42,12 +44,29 @@
 .calendar-heatmap {
     grid-area: calendar-heatmap;
     justify-self: center;
+    margin-left: 5rem;
+    width: 55rem    
+
 }
 
-/* .chart-container {
-  height: 100%;
-  width: 100%;
-} */
+.graph-h2 {
+    font-size: 2rem;
+    padding-bottom: 2rem;
+    justify-content: center;
+}
+
+.react-calendar-heatmap {
+    width: 60rem;
+    
+}
+
+.react-calendar-heatmap-all-weeks {
+    width: 55rem;
+}
+.react-calendar-heatmap-weekday-label {
+    font-size: 20px;
+    padding-right: 2rem;
+}
 
 .react-calendar-heatmap .color-empty {
   fill: #cab5f0;

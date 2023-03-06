@@ -1,19 +1,16 @@
 import PatternTable from "../../components/PatternTable";
 import { Link } from "react-router-dom"
 
+import "../../pages/MyPatternsPage/MyPatternsPage.css"
+
 const MyPatternsPage = (props) => {
 
     const { patterns } = props;
 
     return ( 
-        <div>
+        <section className="my-patterns">
             <PatternTable patterns = {patterns} />
-        <div>
-            <Link to ="/">
-                <button className="dashboard-buttons">Dashboard</button>
-            </Link>
-        </div>
-        </div>
+        </section>
      );
 }
  

@@ -1,8 +1,9 @@
 footer {
-  position: relative;
+  /* position: absolute; */
   color:var(--drab-dark-brown);
   background-color: var(--rose-taupe);
   bottom: 0;
+  height: 5rem;
   font-size: 1.2rem;
   left: 0;
   padding: 1rem;

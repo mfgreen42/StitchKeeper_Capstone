@@ -42,7 +42,9 @@ const DisplayGraph = (props) => {
 
   return ( 
     <div className="calendar-heatmap">
-      <h2>Projects completed this year</h2>
+      <div className="graph-h2">
+      <h2 >Projects completed</h2>
+      </div>
       <CalendarHeatmap
   startDate={new Date('2023-01-01')}
   endDate={new Date('2023-12-31')}
@@ -59,6 +61,9 @@ const DisplayGraph = (props) => {
     return `color-scale-${value.count}`;
   }}
   showWeekdayLabels = {true}
+  showMonthLabels = {true}
+   showOutOfRangeDays = {true}
+   gutterSize = {1}
   onClick={value => alert(`Clicked on value with count: ${value.count}`)}
 />      
 
