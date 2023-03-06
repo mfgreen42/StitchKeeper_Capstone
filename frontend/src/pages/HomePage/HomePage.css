@@ -1,0 +1,67 @@
+.dash-grid {
+  display: grid;
+  grid-template-columns: 500px auto 600px;
+  grid-template-rows: 100px 200px 200px; 
+  gap:2rem;
+  grid-template-areas:
+    "content-one content-one dash-img"
+    "dash-buttons dash-buttons dash-img"
+    "calendar-heatmap calendar-heatmap dash-img";
+}
+.content-one {
+    grid-area: content-one;
+    justify-self: center;
+    margin-left: 5rem;
+    font-size: 2.5rem;
+    color: var(--russet);
+}
+
+.dashboard-buttons {
+    width: 15rem;
+    height: 7rem;
+    
+}
+
+.dash-buttons {
+    grid-area: dash-buttons;
+    justify-self: center;
+    margin-left: 5rem;
+
+}
+.actual-img {
+    border-radius: 8px;
+    max-width: 100%;
+    padding-right: 2rem;
+
+}
+
+.dash-img {
+    grid-area: dash-img;
+    justify-self: end;
+}
+.calendar-heatmap {
+    grid-area: calendar-heatmap;
+    justify-self: center;
+}
+
+/* .chart-container {
+  height: 100%;
+  width: 100%;
+} */
+
+.react-calendar-heatmap .color-empty {
+  fill: #cab5f0;
+}
+
+.react-calendar-heatmap .color-scale-1 {
+  fill: #9d72ee;
+}
+.react-calendar-heatmap .color-scale-2 {
+  fill: #7d2fd6;
+}
+.react-calendar-heatmap .color-scale-3 {
+  fill: #630e9b;
+}
+.react-calendar-heatmap .color-scale-4 {
+  fill: #2c0253;
+}

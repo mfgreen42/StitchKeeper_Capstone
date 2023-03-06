@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 
+import "../../src/pages/HomePage/HomePage.css"
+
 
 
 
@@ -39,8 +41,8 @@ const DisplayGraph = (props) => {
   // console.log('dateFinished',dateFinished);
 
   return ( 
-    <div>
-      <h1>Projects completed this year</h1>
+    <div className="calendar-heatmap">
+      <h2>Projects completed this year</h2>
       <CalendarHeatmap
   startDate={new Date('2023-01-01')}
   endDate={new Date('2023-12-31')}
@@ -59,7 +61,6 @@ const DisplayGraph = (props) => {
   showWeekdayLabels = {true}
   onClick={value => alert(`Clicked on value with count: ${value.count}`)}
 />      
-{/* <ReactTooltip /> */}
 
     </div>
    );

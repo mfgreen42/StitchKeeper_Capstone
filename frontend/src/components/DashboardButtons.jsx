@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom";
 
-
+import "../../src/pages/HomePage/HomePage.css"
+// import SmallRoses from "../pages/Media/nasim-keshmiri-fRsVRJi_Bjg-unsplash.jpg"
 
 const DashboardButtons = (props) => {
     return ( 
-        <div>
-        <ol>
+        <div  className="dash-buttons">
+        <ul className="button-size" >
           <li>
             <Link to="/mypatterns">
               <button className="dashboard-buttons">My Patterns</button>
@@ -21,7 +22,11 @@ const DashboardButtons = (props) => {
               <button className="dashboard-buttons">Add New Photo</button>
             </Link>
           </li>
-        </ol>
+        </ul>
+        {/* <div className="dash-img">
+            <img src={SmallRoses} alt="small roses" />
+        </div> */}
+
       </div>
     );
   }
