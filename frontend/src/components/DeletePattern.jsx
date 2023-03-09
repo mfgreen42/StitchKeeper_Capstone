@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useAuth from "../hooks/useAuth";
 import axios from "axios";
 
+import "../pages/MyPatternsPage/MyPatternsPage.css";
 
 const DeletePattern = (props) => {
 
@@ -26,7 +27,7 @@ const deletePattern=async () => {
     return ( 
         <>
         {!deleted &&
-        <button onClick={deletePattern}>Delete Pattern</button>
+        <button className="delete-button" onClick={deletePattern}>Delete Pattern</button>
 }
         </>
         );

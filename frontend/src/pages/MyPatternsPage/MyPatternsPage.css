@@ -1,0 +1,53 @@
+
+h2 {
+    font-size: 3rem;
+    margin: 1.5rem 3rem;
+}
+
+.my-pattern-bar {
+    display: flex;
+    justify-content: space-around;
+    height: 7rem
+}
+
+.heart {
+    width: 6rem;
+    height: 6rem;
+}
+
+
+
+.table-container {
+    display: flex;
+    gap: 2rem;
+}
+
+table {
+    margin-right: 2rem;
+    width: 70%;
+    border: 2px dashed;
+    border-color: var(--russet);
+
+}
+
+td {
+    text-align: center;
+}
+
+th, td {
+    border-collapse: collapse;
+    
+
+}
+
+.delete-button {
+    background-color: var(--carmine);
+    width: 8rem;
+    font-size: medium;
+
+}
+
+.delete-button:hover {
+    background-color: rgb(112, 7, 26);
+
+}
