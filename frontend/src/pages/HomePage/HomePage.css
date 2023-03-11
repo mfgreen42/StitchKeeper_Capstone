@@ -39,7 +39,7 @@
 
 .dash-img {
     grid-area: dash-img;
-    justify-self: end;
+    justify-self: center;
 }
 .calendar-heatmap {
     grid-area: calendar-heatmap;

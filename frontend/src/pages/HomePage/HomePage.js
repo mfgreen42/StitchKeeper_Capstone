@@ -4,7 +4,7 @@ import DashboardButtons from "../../components/DashboardButtons";
 import DisplayGraph from "../../components/DisplayGraph";
 
 import "../HomePage/HomePage.css"
-import SmallRoses from "../../pages/Media/nasim-keshmiri-fRsVRJi_Bjg-unsplash.jpg"
+import inProcess from "../../pages/Media/in_process.jpg"
 
 
 const HomePage = (props) => {
@@ -20,7 +20,7 @@ const HomePage = (props) => {
       <h1 className="content-one">{user.username}'s Dashboard</h1>
       <DashboardButtons  />
       <div className="dash-img">
-            <img src={SmallRoses} alt="small roses" className="actual-img" />
+            <img src={inProcess} alt="inProcess" className="actual-img" />
         </div>
 
       <DisplayGraph  />

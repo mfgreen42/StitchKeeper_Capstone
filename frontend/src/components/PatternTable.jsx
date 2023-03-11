@@ -3,7 +3,7 @@
 import { useState } from "react";
 import DeletePattern from "./DeletePattern";
 
-import blankHoop from "../../../frontend/src/pages/Media/ika-dam-SLODHM36c9s-unsplash.jpg";
+import noProbllama from "../../../frontend/src/pages/Media/noProbllama.jpg";
 import heart from "../../../frontend/src/pages/Media/karly-santiago-E7zsz8JA8FM-unsplash.jpg"
 const PatternTable = (props) => {
   const [patterns, setPatterns] = useState(props.patterns);
@@ -11,14 +11,12 @@ const PatternTable = (props) => {
   return (
     <div>
       <div className="my-pattern-bar">
-        <img src= {heart} alt="heart" className="heart" />
         <h2>My Patterns</h2>
-        <img src= {heart} alt="heart" className="heart" />
-
+        
       </div>
       <div className="table-container">
         <div>
-          <img src={blankHoop} alt="blank hoop" />
+          <img src={noProbllama} alt="noProblamma" />
         </div>
         <table>
           <thead>
