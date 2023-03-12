@@ -14,6 +14,7 @@ const Navbar = () => {
         <li className="brand">
           <Link to="/" className="navbar-title">
             <h3>StitchKeeper</h3>
+            <p>Keep track of all your patterns in one place</p>
           </Link>
         </li>
         <li>

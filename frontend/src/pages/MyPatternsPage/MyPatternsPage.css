@@ -40,6 +40,11 @@ th, td {
 
 }
 
+.table-img {
+    height: 50px;
+    width: 50px;
+}
+
 .delete-button {
     background-color: var(--carmine);
     width: 8rem;

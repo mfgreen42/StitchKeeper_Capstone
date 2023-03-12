@@ -64,7 +64,7 @@ const PatternTable = (props) => {
                   <td>
                     {pattern.photos.map((photo) => (
                       <div key={photo.pattern}>
-                        <img src={photo.photo_img} alt={pattern.pattern_name} />
+                        <img className="table-img" src={photo.photo_img} alt={pattern.pattern_name}  />
                       </div>
                     ))}
                   </td>

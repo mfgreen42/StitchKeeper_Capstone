@@ -43,7 +43,7 @@ const DisplayGraph = (props) => {
   return ( 
     <div className="calendar-heatmap">
       <div className="graph-h2">
-      <h2 >Projects completed</h2>
+      <h2 >Projects completed this year:</h2>
       </div>
       <CalendarHeatmap
   startDate={new Date('2023-01-01')}
