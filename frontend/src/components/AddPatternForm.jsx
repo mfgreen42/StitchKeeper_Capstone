@@ -3,6 +3,9 @@ import { useState } from "react";
 import React from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom'
+import beeYou from "../../src/pages/Media/Screenshot 2023-03-12 102626.png"
+
+import "../../src/pages/AddPatternPage/AddPatternPage.css"
 
 const AddPatternForm = (props) => {
 
@@ -57,36 +60,41 @@ const AddPatternForm = (props) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
+    <div>
       <h2>Add A New Pattern</h2>
-      <ol>
+    </div>
+    <form onSubmit={handleSubmit} className="addpattern-form">
+      <img src={beeYou} alt= "beeYou Pattern" className="bee-img"/>
+      <ol className="pattern-list">
         <li>
-          <label>PDF File</label>
-          <input type="file" name="pdf" onChange={(event) => setPdf(event.target.files[0])}/>
+          <label className="addpattern-label">PDF File</label>
+          <input className="addpattern-input" type="file" name="pdf" onChange={(event) => setPdf(event.target.files[0])}/>
         </li>
 
         <li>
-          <label>Pattern Name</label>
-          <input type="text"  name="patternName" onChange={(event) => setPatternName(event.target.value)}/>
+          <label className="addpattern-label">Pattern Name</label>
+          <input className="addpattern-input" type="text"  name="patternName" onChange={(event) => setPatternName(event.target.value)}/>
         </li>
-        <label>Artist</label>
-        <input type="text" name="artist" onChange={(event) => setArtist(event.target.value)} />
+        <label className="addpattern-label">Artist</label>
+        <input className="addpattern-input" type="text" name="artist" onChange={(event) => setArtist(event.target.value)} />
         <li>
-          <label>Date</label>
-          <input type="date" name="date" onChange={handleDateChange} />
+          <label className="addpattern-label">Date</label>
+          <input  className="addpattern-input"type="date" name="date" onChange={handleDateChange} />
         </li>
 
         <li>
-          <label>Embroidery?</label>
-          <input type="checkbox"    name="false" onChange={(event) => setEmbroidery(event.target.value)}/>
-          <label> or Cross Stitch?</label>
-          <input type="checkbox"  name="false" onChange={(event) => setCrossStitch(event.target.value)}/>
+          <label className="checkbox-label">Embroidery?</label>
+          <input className="checkbox-input" type="checkbox"    name="false" onChange={(event) => setEmbroidery(event.target.value)}/>
+          <label className="checkbox-label"> or Cross Stitch?</label>
+          <input className="checkbox-input" type="checkbox"  name="false" onChange={(event) => setCrossStitch(event.target.value)}/>
         </li>
         <Link to='/mypatterns'>
-        <button type="submit">Submit Pattern</button>
+        <button className="addpattern-button" type="submit">Submit Pattern</button>
         </Link>
       </ol>
     </form>
+    </>
   );
 };
 
