@@ -4,7 +4,6 @@ import { useState } from "react";
 import DeletePattern from "./DeletePattern";
 
 import noProbllama from "../../../frontend/src/pages/Media/noProbllama.jpg";
-import heart from "../../../frontend/src/pages/Media/karly-santiago-E7zsz8JA8FM-unsplash.jpg"
 const PatternTable = (props) => {
   const [patterns, setPatterns] = useState(props.patterns);
 
@@ -21,6 +20,7 @@ const PatternTable = (props) => {
         <table>
           <thead>
             <tr>
+              <th>Pattern ID</th>
               <th>Pattern Name</th>
               <th>Artist</th>
               <th>Date Uploaded</th>
@@ -36,6 +36,7 @@ const PatternTable = (props) => {
             {patterns.map((pattern) => {
               return (
                 <tr key={pattern.id}>
+                  <td>{pattern.id}</td>
                   <td>{pattern.pattern_name}</td>
                   <td>{pattern.artist}</td>
                   <td>{pattern.date_added}</td>

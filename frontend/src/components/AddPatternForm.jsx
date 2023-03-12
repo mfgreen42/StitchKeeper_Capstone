@@ -3,7 +3,7 @@ import { useState } from "react";
 import React from "react";
 import axios from "axios";
 import { Link } from 'react-router-dom'
-import beeYou from "../../src/pages/Media/Screenshot 2023-03-12 102626.png"
+import beeYou from "../../src/pages/Media/Screenshot 2023-03-12 102626.jpg"
 
 import "../../src/pages/AddPatternPage/AddPatternPage.css"
 
@@ -89,9 +89,7 @@ const AddPatternForm = (props) => {
           <label className="checkbox-label"> or Cross Stitch?</label>
           <input className="checkbox-input" type="checkbox"  name="false" onChange={(event) => setCrossStitch(event.target.value)}/>
         </li>
-        <Link to='/mypatterns'>
-        <button className="addpattern-button" type="submit">Submit Pattern</button>
-        </Link>
+        <button className="addpattern-button" type="submit">Add Pattern</button>
       </ol>
     </form>
     </>

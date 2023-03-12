@@ -3,6 +3,9 @@ import axios from "axios";
 import useAuth from "../hooks/useAuth";
 import { Link } from "react-router-dom"
 
+import "../../src/pages/AddPhotoPage/AddPhoto.css"
+import mountains from "../../src/pages/Media/Mountains.jpg"
+
 const AddPhotoForm = (props) => {
   const [patternId, setPatternId] = useState("");
   const [completed, setCompleted] = useState(false);
@@ -61,36 +64,42 @@ const AddPhotoForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <>
+    <div>
       <h2>Add A New Photo</h2>
-      <ol>
-        <li>
-          <label>Pattern Id</label>
-          <input type="number" name="pattern"  onChange={(event) => setPatternId(event.target.value)} />
+
+    </div>
+    <form className="addPhoto-form" onSubmit={handleSubmit}>
+      <div className="mountains-container">
+        <img src= {mountains} alt="mountains"/>
+      </div>
+      <ol className="photo-list">
+        <li className="form-size">
+          <label className="addphoto-label">Pattern Id</label>
+          <input  className = "addphoto-input" type="number" name="pattern"  onChange={(event) => setPatternId(event.target.value)} />
+        </li>
+        <li className="form-size">
+          <label className="checkbox-label-photo">Completed? </label>
+          <input className="checkbox-input-photo" type="checkbox" name="completed" onChange={(event) => setCompleted(event.target.value)} />
+        </li>
+        <li className="form-size">
+          <label className="addphoto-label">Date pattern was finished</label>
+          <input className = "addphoto-input"  type="date" name="dateFinished" onChange={handleDateChange} />
+        </li>
+        <li className="form-size">
+          <label className="addphoto-label">Photo:</label>
+          <input className = "addphoto-input"  type="file" name="photoImg" onChange={(event) => setPhoto(event.target.files[0])} />
+        </li>
+        <li className="form-size">
+          <label className="checkbox-label-photo">Favorite? </label>
+          <input className="checkbox-input-photo" type="checkbox" name="favorite" onChange={(event) => setFavorite(event.target.value)} />
         </li>
         <li>
-          <label>Completed? </label>
-          <input type="checkbox" name="completed" onChange={(event) => setCompleted(event.target.value)} />
-        </li>
-        <li>
-          <label>Date pattern was finished</label>
-          <input type="date" name="dateFinished" onChange={handleDateChange} />
-        </li>
-        <li>
-          <label>Photo:</label>
-          <input type="file" name="photoImg" onChange={(event) => setPhoto(event.target.files[0])} />
-        </li>
-        <li>
-          <label>Favorite? </label>
-          <input type="checkbox" name="favorite" onChange={(event) => setFavorite(event.target.value)} />
-        </li>
-        <li>
-          <Link to="/mypatterns">
             <button type="submit">Submit Photo</button>
-            </Link>
         </li>
       </ol>
     </form>
+    </>
   );
 };
 
