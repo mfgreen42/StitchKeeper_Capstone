@@ -2,14 +2,16 @@ import useAuth  from "../hooks/useAuth"
 import { useState } from "react";
 import React from "react";
 import axios from "axios";
-import { Link } from 'react-router-dom'
+import App from "../App.js"
+
+
 import beeYou from "../../src/pages/Media/Screenshot 2023-03-12 102626.jpg"
 
 import "../../src/pages/AddPatternPage/AddPatternPage.css"
 
 const AddPatternForm = (props) => {
 
-
+  
     const [pdf, setPdf] = useState("");
     const [patternName, setPatternName] = useState("");
     const [artist, setArtist] = useState("");
@@ -56,6 +58,8 @@ const AddPatternForm = (props) => {
       const handleSubmit = (event) => {
         event.preventDefault();
         addUserPattern();
+        console.log("pattern added");
+
       };
 
 

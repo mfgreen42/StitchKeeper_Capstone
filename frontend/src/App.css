@@ -37,6 +37,7 @@ button {
   padding: 0.5rem;
   background: var(--rose-taupe);
   border: 2px solid rgb(133, 87, 103);
+  border-radius: 15px;
   box-shadow: 2px 2px 5px #8b5d6dff;
   color: white;
 }
@@ -47,6 +48,10 @@ button:hover {
   cursor: pointer;
 }
 
+button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(5px);
+}
 .container {
   display: flex;
   margin: 0 auto;
