@@ -55,23 +55,33 @@ const DisplayGraph = (props) => {
   // })
 
   const completedProjectsByMonth = getCompletedProjectsByMonth(photos);
+  const colors = ["#b87333", "silver", "gold", "color: #e5e4e2", "#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00"];
 
   const data = [["Month", "Completed Projects", { role: "style" }]];
 
   completedProjectsByMonth.forEach((completedProjects, monthIndex) => {
     const monthName = getMonthName(monthIndex + 1);
-    data.push([monthName, completedProjects, "color: #b87333"]);
+    const color = colors[monthIndex % colors.length];
+    data.push([monthName, completedProjects,`color: ${color}`]);
   });
 
-  
+  // This make the numbers whole numbers and bar width
+  const options ={
+    vAxis: { format: "0"},
+    bar: { groupWidth: "70%"},
+    gap: 50,
+    overlap: 25,
+  };
+
   return ( 
     <>
     <div className="bar-chart">
     <Chart 
         chartType="ColumnChart"
-        width="150%"
+        width="100%"
         height="400px"
         data={data}
+        options = {options}
         legendToggle
       />
     {/* <Chart

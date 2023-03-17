@@ -43,7 +43,7 @@
 }
 .bar-chart {
     grid-area: bar-chart;
-    justify-self: center;
+    justify-self: left;
     margin-left: 5rem;
     width: 55rem    
 
