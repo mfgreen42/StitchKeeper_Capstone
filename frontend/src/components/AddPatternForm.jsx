@@ -67,6 +67,7 @@ const AddPatternForm = (props) => {
     <>
     <div>
       <h2>Add A New Pattern</h2>
+      <p className="p-photo">Upload your patterns here:</p>
     </div>
     <form onSubmit={handleSubmit} className="addpattern-form">
       <img src={beeYou} alt= "beeYou Pattern" className="bee-img"/>

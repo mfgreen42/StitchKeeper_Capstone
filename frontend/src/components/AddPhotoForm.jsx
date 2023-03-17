@@ -67,7 +67,7 @@ const AddPhotoForm = (props) => {
     <>
     <div>
       <h2>Add A New Photo</h2>
-
+      <p className="p-photo">Once you've completed a project you can upload a photo here:</p>
     </div>
     <form className="addPhoto-form" onSubmit={handleSubmit}>
       <div className="mountains-container">

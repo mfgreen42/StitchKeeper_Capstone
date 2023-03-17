@@ -69,8 +69,6 @@ const DisplayGraph = (props) => {
   const options ={
     vAxis: { format: "0"},
     bar: { groupWidth: "70%"},
-    gap: 50,
-    overlap: 25,
   };
 
   return ( 
