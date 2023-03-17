@@ -7,7 +7,7 @@
   grid-template-areas:
     "content-one content-one dash-img"
     "dash-buttons dash-buttons dash-img"
-    "calendar-heatmap calendar-heatmap dash-img";
+    "bar-chart bar-chart dash-img";
 }
 .content-one {
     grid-area: content-one;
@@ -41,8 +41,8 @@
     grid-area: dash-img;
     justify-self: center;
 }
-.calendar-heatmap {
-    grid-area: calendar-heatmap;
+.bar-chart {
+    grid-area: bar-chart;
     justify-self: center;
     margin-left: 5rem;
     width: 55rem    
