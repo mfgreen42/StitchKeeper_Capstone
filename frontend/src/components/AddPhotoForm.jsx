@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import useAuth from "../hooks/useAuth";
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import "../../src/pages/AddPhotoPage/AddPhoto.css"
 import mountains from "../../src/pages/Media/Mountains.jpg"
@@ -13,7 +13,7 @@ const AddPhotoForm = (props) => {
   const [photo, setPhoto] = useState("");
   const [favorite, setFavorite] = useState(false);
   const [user, token] = useAuth();
-
+  const navigate = useNavigate();
 
 //   this function will check if a pattern already has a photo attatched to it to make sure that only one photo is uploaded per pattern
 // this isn't currently working, It will be done in a future iteration of this project
@@ -47,6 +47,7 @@ const AddPhotoForm = (props) => {
         },
     });
     console.log("set response photo", response.data)
+    navigate("/mypatterns");
     } catch (error) {
       console.log(error.response);
     }

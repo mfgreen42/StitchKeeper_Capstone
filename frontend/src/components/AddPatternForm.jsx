@@ -2,8 +2,7 @@ import useAuth  from "../hooks/useAuth"
 import { useState } from "react";
 import React from "react";
 import axios from "axios";
-import App from "../App.js"
-
+import { useNavigate } from "react-router-dom";
 
 import beeYou from "../../src/pages/Media/Screenshot 2023-03-12 102626.jpg"
 
@@ -19,7 +18,7 @@ const AddPatternForm = (props) => {
     const [embroidery, setEmbroidery] = useState(false);
     const [crossStitch, setCrossStitch] = useState(false);
     const [user, token] = useAuth()
-
+    const navigate = useNavigate();
 
 
         function handleDateChange(event) {
@@ -51,6 +50,8 @@ const AddPatternForm = (props) => {
           setDate("");
           setEmbroidery(false);
           setCrossStitch(false);
+
+          navigate("/mypatterns");
         } catch (error) {
         }
       };
