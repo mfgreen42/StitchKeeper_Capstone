@@ -43,7 +43,6 @@ const AddPatternForm = (props) => {
               "Content-Type": "multipart/form-data",
             },
           });
-          console.log("set response", response.data)
           setPdf("");
           setPatternName("");
           setArtist("");

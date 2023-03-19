@@ -15,23 +15,7 @@ const AddPhotoForm = (props) => {
   const [user, token] = useAuth();
   const navigate = useNavigate();
 
-//   this function will check if a pattern already has a photo attatched to it to make sure that only one photo is uploaded per pattern
-// this isn't currently working, It will be done in a future iteration of this project
   const addPhotoToPattern = async () => {
-    // const response = await axios.get(`http://127.0.0.1:8000/api/patterns/`, {
-    //   headers: {
-    //     Authorization: "Bearer " + token,
-    //   },
-    // });
-    // debugger
-    // // const photos = response.photos;
-
-    // console.log('response:', response.data)
-    // if (response.data.id === patternId) {
-
-    //   alert("A photo already exists for this pattern. Please upload only one photo per pattern.");
-    //   return;
-    // }
 
     const formData = new FormData();
     formData.append("pattern", patternId);
@@ -46,7 +30,6 @@ const AddPhotoForm = (props) => {
             "Content-Type": "multipart/form-data",
         },
     });
-    console.log("set response photo", response.data)
     navigate("/mypatterns");
     } catch (error) {
       console.log(error.response);

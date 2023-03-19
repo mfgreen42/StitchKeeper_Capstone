@@ -32,7 +32,6 @@ const DisplayGraph = (props) => {
 
 
   useEffect(() => {
-    console.log('display graph ran')
     const fetchUserPhotos=async () => {
       try {
         let response = await axios.get('http://127.0.0.1:8000/api/patterns/photos/1/', {
@@ -41,7 +40,6 @@ const DisplayGraph = (props) => {
 
           },
         });
-        console.log('photo array:', response.data)
         setPhotos(response.data);
       } catch (error) {
         console.log(error.response)

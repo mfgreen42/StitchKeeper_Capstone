@@ -7,7 +7,6 @@ const MyPatternsPage = (props) => {
 
     
     const { patterns } = props;
-    console.log('Pattern Page')
     return ( 
         <section className="my-patterns">
             <PatternTable patterns = {patterns} />
